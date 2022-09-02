@@ -20,6 +20,17 @@ const loadPosts = (id) => {
 };
 
 const showPosts = (posts) => {
+  console.log(posts);
+  if (posts.length == 0) {
+    document.getElementById("post-count").innerHTML = `
+    <p> No Post Found In This Catagory !! </p> 
+    <p> Change Catagoty To View Posts </p> 
+    `;
+  } else {
+    document.getElementById("post-count").innerHTML = `
+  <p> ${posts.length} Posts Found In This Catagory !! </p> 
+  `;
+  }
   document.getElementById("post-container").innerHTML = "";
   posts.forEach((post) => {
     let detail = post.details;

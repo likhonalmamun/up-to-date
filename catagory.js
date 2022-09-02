@@ -12,6 +12,8 @@ const addToList = (catagories) => {
   });
 };
 const loadPosts = (id) => {
+  document.getElementById("spinner").classList.remove("hidden");
+  document.getElementById("post-container").classList.add("hidden");
   fetch(`https://openapi.programming-hero.com/api/news/category/${id}`)
     .then((res) => res.json())
     .then((data) => showPosts(data.data));
@@ -62,6 +64,8 @@ const showPosts = (posts) => {
   `;
     document.getElementById("post-container").appendChild(postBox);
   });
+  document.getElementById("spinner").classList.add("hidden");
+  document.getElementById("post-container").classList.remove("hidden");
 };
 
 const postDetail = (id) => {

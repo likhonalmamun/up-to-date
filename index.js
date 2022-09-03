@@ -5,6 +5,7 @@ fetch("https://openapi.programming-hero.com/api/news/categories")
 const addToList = (catagories) => {
   catagories.forEach((catagory) => {
     let li = document.createElement("li");
+    li.classList.add("md:m-5");
     li.innerHTML = `
      <span onclick='loadPosts("${catagory.category_id}")' class='text-lime-700 hover:text-red-400'>${catagory.category_name}</span>
     `;
@@ -42,39 +43,47 @@ const showPosts = (posts) => {
     }
     let postBox = document.createElement("div");
     postBox.innerHTML = `
-  <div class="flex justify-center m-11">
-  <div class="flex p-4  flex-col md:flex-row md:w-3/4 rounded-lg bg-white shadow-lg">
-    <img class=" w-[350px] h-100 md:h-auto object-cover  rounded-t-lg md:rounded-none md:rounded-l-lg" src="${
-      post.image_url
-    }" alt="" />
-    <div class="p-6 flex  md:w-full flex-col justify-start">
-      <h5 class="text-lime-700 text-2xl font-bold mb-2">${post.title}</h5>
-      <p class="text-gray-700 text-base mb-4">
-      ${detail}
-      </p>
-      <p class="text-gray-600 text-xs font-bold">${
-        post.author.published_date ? post.author.published_date : "unknown date"
-      }</p>
-      <div class="flex justify-between p-3 items-cent">
-  <div class="flex mt-3 items-center">
-  <img  src='${post.author.img}' class='w-[50px] rounded-[100px]' />
-  <p class='text-lime-700 ml-2 font-bold uppercase text-xl'>${
-    post.author.name ? post.author.name : "unknown user"
-  }</p>
-  </div>
-  <div class="flex items-center font-bold text-lg text-red-500">Views : ${
-    post.total_view ? post.total_view : "Calculating views"
-  }</div>
-  <div class="flex items-center font-bold text-lg text-red-500"><span class='text-lime-700'>Ratings : </span> ${
-    post.rating.number
-  }</div>
-  <button onclick= 'postDetail("${
-    post._id
-  }")' data-bs-toggle="modal" data-bs-target="#exampleModalCenteredScrollable" class="inline-block px-6   py-0 border-2 border-green-500 text-green-900 font-semibold text-lg uppercase rounded hover:bg-black hover:bg-opacity-5">See Details</button>
-</div>
-    </div>
-  </div>
-</div>
+        <div class="flex p-0 sm:p-4 m-auto justify-center my-4 ">
+          <div class="flex p-0 sm:p-4   flex-col  lg:flex-row  w-100 rounded-lg bg-white shadow-lg">
+          <img class=" w-[90%] block lg:w-[350px] m-auto  h-100 md:h-auto object-cover  rounded-t-lg md:rounded-none md:rounded-l-lg" src="${
+            post.image_url
+          }" alt="" />
+          <div class=" p-2 sm:p-4 md:p-6 flex text-wrap md:w-full flex-col justify-start">
+            <h5 class="text-lime-700 text-lg md:text-2xl font-bold mb-2">${
+              post.title
+            }</h5>
+            <p class="text-gray-700 text-[10px] md:text-base mb-4">
+            ${detail}
+            </p>
+            <p class="text-gray-600 md:text-xs text-[11px] font-bold">${
+              post.author.published_date
+                ? post.author.published_date
+                : "unknown date"
+            }</p>
+            <div class="flex flex-wrap justify-center md:justify-between p-3 items-center">
+            <div class="flex mt-3 items-center">
+            <img  src='${
+              post.author.img
+            }' class='w-[30px] md:w-[40px] xl:w-[50px] rounded-[100px]' />
+            <p class='text-lime-700 ml-2 font-bold uppercase mx-3 my-2 text-sm md:text-xl'>${
+              post.author.name ? post.author.name : "unknown user"
+            }</p>
+        </div>
+        <div class="flex items-center font-bold text-sm lg:text-xl mx-3 my-2 sm:text:xl text-red-500">Views : ${
+          post.total_view ? post.total_view : "Calculating views"
+        }</div>
+        <div class="flex items-center font-bold text-sm lg:text-xl mx-3 my-2 sm:text:xl text-red-500"><span class='text-lime-700'>Ratings : </span> ${
+          post.rating.number
+        }</div>
+        <button onclick= 'postDetail("${
+          post._id
+        }")' data-bs-toggle="modal" data-bs-target="#exampleModalCenteredScrollable" class=" px-2 sm:px-4  md:px-6 
+          py-1 md:py-2 border-2 border-green-500
+         text-green-900 font-semibold text-xs sm:text-sm md:text-sm lg:text-sm mx-3 my-2 uppercase rounded hover:bg-black hover:bg-opacity-5">See Details</button>
+        </div>
+      </div>
+        </div>
+      </div>
   `;
     document.getElementById("post-container").appendChild(postBox);
   });
@@ -94,16 +103,19 @@ const modal = (post) => {
     "exampleModalCenteredScrollableLabel"
   ).innerText = `${post.title}`;
   document.getElementById("modal-body").innerHTML = `
-    <div class="p-4">
-       <img class='w-[430px] mb-5 h-[350px]' src="${post.image_url}" alt="">
-       <p class="mb-4">${post.details}</p>
-       <div class='border p-5'> <p class='text-center font-bold text-2xl'>Post Author</p>
+    <div class="p-1 md:p-3">
+       <img class='w-full m-auto block mb-5 ' src="${post.image_url}" alt="">
+       <p class="mb-4 text-[12px] md:text-base">${post.details}</p>
+       <div class='border p-5'> <p class='text-center font-bold text-xl'>Post Author</p>
        <div class="flex justify-center mt-3 items-center">
-  <img  src='${post.author.img}' class='w-[50px] rounded-[100px]' />
-  <p class='text-lime-700 ml-2 font-bold uppercase text-xl'>${
-    post.author.name ? post.author.name : "unknown"
-  }</p>
-  </div></div>
+      <img  src='${
+        post.author.img
+      }' class='w-[30px] md:w-[40px] xl:w-[50px] rounded-[100px]' />
+      <p class='text-lime-700 ml-2 font-bold uppercase text-xl'>${
+        post.author.name ? post.author.name : "unknown"
+      }</p>
+      </div>
+    </div>
 
     </div>
     `;

@@ -1,6 +1,7 @@
 fetch("https://openapi.programming-hero.com/api/news/categories")
   .then((res) => res.json())
-  .then((data) => addToList(data.data.news_category));
+  .then((data) => addToList(data.data.news_category))
+  .catch((err) => console.log(err));
 
 const addToList = (catagories) => {
   catagories.forEach((catagory) => {
@@ -17,14 +18,17 @@ const loadPosts = (id) => {
   document.getElementById("post-container").classList.add("hidden");
   fetch(`https://openapi.programming-hero.com/api/news/category/${id}`)
     .then((res) => res.json())
-    .then((data) => showPosts(data.data));
+    .then((data) => showPosts(data.data))
+    .catch((err) => console.log(err));
 };
 
 const showPosts = (posts) => {
   posts.sort((a, b) => {
+    if (a.total_view == null) {
+      a.total_view = 00;
+    }
     return parseInt(b.total_view) - parseInt(a.total_view);
   });
-  console.log(posts);
   if (posts.length == 0) {
     document.getElementById("post-count").innerHTML = `
     <p> No Post Found In This Catagory !! </p> 
@@ -37,14 +41,15 @@ const showPosts = (posts) => {
   }
   document.getElementById("post-container").innerHTML = "";
   posts.forEach((post) => {
+    console.log(post.total_view);
     let detail = post.details;
     if (detail.length > 250) {
       detail = detail.slice(0, 250) + "...";
     }
     let postBox = document.createElement("div");
     postBox.innerHTML = `
-        <div class="flex p-0 sm:p-4 m-auto justify-center my-4 ">
-          <div class="flex p-0 sm:p-4   flex-col  lg:flex-row  w-100 rounded-lg bg-white shadow-lg">
+        <div class="flex p-0 sm:p-4 w-100 m-auto justify-center my-4 ">
+          <div class="flex p-0 sm:p-4  w-[1760px] flex-col  lg:flex-row  w-100 rounded-lg bg-white shadow-lg">
           <img class=" w-[90%] block lg:w-[350px] m-auto  h-100 md:h-auto object-cover  rounded-t-lg md:rounded-none md:rounded-l-lg" src="${
             post.image_url
           }" alt="" />
@@ -91,14 +96,19 @@ const showPosts = (posts) => {
   document.getElementById("post-container").classList.remove("hidden");
 };
 
-const postDetail = (id) => {
-  fetch(`https://openapi.programming-hero.com/api/news/${id}`)
-    .then((res) => res.json())
-    .then((data) => modal(data.data[0]));
+const postDetail = async (id) => {
+  try {
+    let res = await fetch(
+      `https://openapi.programming-hero.com/api/news/${id}`
+    );
+    let data = await res.json();
+    modal(data.data[0]);
+  } catch (err) {
+    console.log(err);
+  }
 };
 
 const modal = (post) => {
-  console.log(post);
   document.getElementById(
     "exampleModalCenteredScrollableLabel"
   ).innerText = `${post.title}`;
@@ -120,5 +130,3 @@ const modal = (post) => {
     </div>
     `;
 };
-
-function sortPostHigh(array) {}

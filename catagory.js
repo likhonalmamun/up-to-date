@@ -24,7 +24,7 @@ const showPosts = (posts) => {
   if (posts.length == 0) {
     document.getElementById("post-count").innerHTML = `
     <p> No Post Found In This Catagory !! </p> 
-    <p> Change Catagoty To View Posts </p> 
+    <p> Change Catagory To View Posts </p> 
     `;
   } else {
     document.getElementById("post-count").innerHTML = `
@@ -44,8 +44,8 @@ const showPosts = (posts) => {
     <img class=" w-full h-96 md:h-auto object-cover md:w-48 rounded-t-lg md:rounded-none md:rounded-l-lg" src="${
       post.image_url
     }" alt="" />
-    <div class="p-6 flex flex-col justify-start">
-      <h5 class="text-gray-900 text-2xl font-bold mb-2">${post.title}</h5>
+    <div class="p-6 flex bg-red-100 flex-col justify-start">
+      <h5 class="text-lime-700 text-2xl font-bold mb-2">${post.title}</h5>
       <p class="text-gray-700 text-base mb-4">
       ${detail}
       </p>

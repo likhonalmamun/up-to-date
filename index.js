@@ -1,8 +1,15 @@
+
+//  catagorie data loading starts here
 fetch("https://openapi.programming-hero.com/api/news/categories")
   .then((res) => res.json())
   .then((data) => addToList(data.data.news_category))
   .catch((err) => console.log(err));
+//  catagorie data loading ends here
 
+
+
+
+// catagory listing starts here 
 const addToList = (catagories) => {
   catagories.forEach((catagory) => {
     let li = document.createElement("li");
@@ -13,7 +20,13 @@ const addToList = (catagories) => {
     document.getElementById("list").appendChild(li);
   });
 };
+//catagory listing ends here
+
+
+
+// post data loading starts here 
 const loadPosts = (id) => {
+  // spinner getting visible here 
   document.getElementById("spinner").classList.remove("hidden");
   document.getElementById("post-container").classList.add("hidden");
   fetch(`https://openapi.programming-hero.com/api/news/category/${id}`)
@@ -21,7 +34,12 @@ const loadPosts = (id) => {
     .then((data) => showPosts(data.data))
     .catch((err) => console.log(err));
 };
+// post data loading ends here 
 
+
+
+
+// adding post to page starts here 
 const showPosts = (posts) => {
   posts.sort((a, b) => {
     if (a.total_view == null) {
@@ -92,10 +110,18 @@ const showPosts = (posts) => {
   `;
     document.getElementById("post-container").appendChild(postBox);
   });
+
+  // spinner getting invisible here 
   document.getElementById("spinner").classList.add("hidden");
   document.getElementById("post-container").classList.remove("hidden");
 };
+// adding post to page ends here 
 
+
+
+
+
+// post detail  loading starts here 
 const postDetail = async (id) => {
   try {
     let res = await fetch(
@@ -107,7 +133,12 @@ const postDetail = async (id) => {
     console.log(err);
   }
 };
+// post detail loading ends here 
 
+
+
+
+// showing details in modal starts here 
 const modal = (post) => {
   document.getElementById(
     "exampleModalCenteredScrollableLabel"
@@ -130,3 +161,4 @@ const modal = (post) => {
     </div>
     `;
 };
+// showing details to modal ends here 

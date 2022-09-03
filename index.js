@@ -20,6 +20,9 @@ const loadPosts = (id) => {
 };
 
 const showPosts = (posts) => {
+  posts.sort((a, b) => {
+    return parseInt(b.total_view) - parseInt(a.total_view);
+  });
   console.log(posts);
   if (posts.length == 0) {
     document.getElementById("post-count").innerHTML = `
@@ -40,27 +43,27 @@ const showPosts = (posts) => {
     let postBox = document.createElement("div");
     postBox.innerHTML = `
   <div class="flex justify-center m-11">
-  <div class="flex flex-col md:flex-row md:max-w-full rounded-lg bg-white shadow-lg">
-    <img class=" w-full h-96 md:h-auto object-cover md:w-48 rounded-t-lg md:rounded-none md:rounded-l-lg" src="${
+  <div class="flex p-4  flex-col md:flex-row md:w-3/4 rounded-lg bg-white shadow-lg">
+    <img class=" w-[350px] h-100 md:h-auto object-cover  rounded-t-lg md:rounded-none md:rounded-l-lg" src="${
       post.image_url
     }" alt="" />
-    <div class="p-6 flex bg-red-100 flex-col justify-start">
+    <div class="p-6 flex  md:w-full flex-col justify-start">
       <h5 class="text-lime-700 text-2xl font-bold mb-2">${post.title}</h5>
       <p class="text-gray-700 text-base mb-4">
       ${detail}
       </p>
       <p class="text-gray-600 text-xs font-bold">${
-        post.author.published_date ? post.author.published_date : "unknown"
+        post.author.published_date ? post.author.published_date : "unknown date"
       }</p>
       <div class="flex justify-between p-3 items-cent">
   <div class="flex mt-3 items-center">
   <img  src='${post.author.img}' class='w-[50px] rounded-[100px]' />
   <p class='text-lime-700 ml-2 font-bold uppercase text-xl'>${
-    post.author.name ? post.author.name : "unknown"
+    post.author.name ? post.author.name : "unknown user"
   }</p>
   </div>
   <div class="flex items-center font-bold text-lg text-red-500">Views : ${
-    post.total_view ? post.total_view : "Calculating"
+    post.total_view ? post.total_view : "Calculating views"
   }</div>
   <div class="flex items-center font-bold text-lg text-red-500"><span class='text-lime-700'>Ratings : </span> ${
     post.rating.number
@@ -105,3 +108,5 @@ const modal = (post) => {
     </div>
     `;
 };
+
+function sortPostHigh(array) {}

@@ -1,22 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Today's selected QNA</title>
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Stay Up To Date</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+<!-- blog page starting  -->
 
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
-  <script src="https://cdn.tailwindcss.com"></script>
-</head>
-
-<body>
+<body style="font-family: 'Playfair Display', serif;"> 
+  <!-- header section starts here  -->
   <header>
     <nav
-      class="relative w-full flex flex-wrap items-center justify-between py-4 bg-gray-100 text-gray-500 hover:text-gray-700 focus:text-gray-700 shadow-lg navbar navbar-expand-lg navbar-light">
+      class="relative w-full flex  flex-wrap items-center justify-between py-4 bg-gray-100 text-gray-500 hover:text-gray-700 focus:text-gray-700 shadow-lg navbar navbar-expand-lg navbar-light">
       <div class="container-fluid w-full flex flex-wrap items-center justify-between px-6">
         <button
           class="navbar-toggler text-gray-500 border-0 hover:shadow-none hover:no-underline py-2 px-2.5 bg-transparent focus:outline-none focus:ring-0 focus:shadow-none focus:no-underline"
@@ -30,13 +34,10 @@
           </svg>
         </button>
         <div class="collapse navbar-collapse flex-grow items-center text-2xl font-bold" id="navbarSupportedContent">
-          <span class="text-red-400">UP</span>
-          <span class="text-lime-400">TO</span>
-          <span class="text-red-400">DATE</span>
-
+          <span class="text-red-400">UP</span><span class="text-lime-400">TO</span><span
+            class="text-red-400">DATE</span>
 
         </div>
-
         <div class="flex items-center relative text-lg text-red-400 hover:text-red-600 font-bold p-2 ">
           <a href="index.html">Updates</a>
         </div>
@@ -44,14 +45,20 @@
           <a href="blog.html">Blogs</a>
         </div>
       </div>
-
       </div>
     </nav>
   </header>
+  <!-- header section ends here  -->
+
+
+
+
+  <!-- main content starts here  -->
   <main class="mt-7">
     <h1 class="text-3xl text-red-400 font-bold text-center"> Today's Top 5 Selected QNA </h1>
     <div class="grid  xl:grid-cols-3 md:grid-cols-2 grid-cols-1 m-3 gap-6 p-0">
       <div class="w-full bg-red-100 rounded-lg p-3 md:p-4 flex items-center">
+        <!-- question box-1 starts here -->
         <div>
           <h1 class="text-2xl font-bold text-center">Question 1. </h1>
           <h1 class="text-xl md:text-2xl font-bold text-lime-600 mb-4">What are the differences between var , let and
@@ -64,7 +71,13 @@
             without initialization but let or const will give refference error .</p>
         </div>
       </div>
+      <!-- question box-1 ends here -->
 
+
+
+
+
+      <!-- question box-2 starts here -->
       <div class="w-full bg-red-100 rounded-lg p-4 flex items-center">
         <div>
           <h1 class="text-2xl font-bold text-center">Question 2. </h1>
@@ -78,8 +91,13 @@
             outer function but in regular function , the value is dynamic .</p>
         </div>
       </div>
+      <!-- question box-2 ends here -->
 
 
+
+
+
+      <!-- question box-3 starts here -->
       <div class="w-full bg-red-100 rounded-lg p-4 flex items-center">
         <div>
           <h1 class="text-2xl font-bold text-center">Question 3. </h1>
@@ -95,7 +113,12 @@
             an array and returns the first mathing result .</p>
         </div>
       </div>
+      <!-- question box-3 ends here -->
 
+
+
+
+      <!-- question box-4 starts here -->
       <div class="w-full bg-red-100 rounded-lg p-4 flex items-center">
         <div>
           <h1 class="text-2xl font-bold text-center">Question 4.</h1>
@@ -108,10 +131,12 @@
             We can write multiline string without any method</p>
         </div>
       </div>
-
+      <!-- question box-4 ends here -->
     </div>
   </main>
+  <!-- main content ends here  -->
   <script src="https://cdn.jsdelivr.net/npm/tw-elements/dist/js/index.min.js"></script>
 </body>
+<!-- blog page ends here  -->
 
 </html>

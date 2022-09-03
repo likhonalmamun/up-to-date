@@ -49,7 +49,7 @@ const showPosts = (posts) => {
     let postBox = document.createElement("div");
     postBox.innerHTML = `
         <div class="flex p-0 sm:p-4 w-100 m-auto justify-center my-4 ">
-          <div class="flex p-0 sm:p-4  w-[1760px] flex-col  lg:flex-row  w-100 rounded-lg bg-white shadow-lg">
+          <div class="flex p-0 sm:p-4  w-[1500px] flex-col  lg:flex-row  w-100 rounded-lg bg-white shadow-lg">
           <img class=" w-[90%] block lg:w-[350px] m-auto  h-100 md:h-auto object-cover  rounded-t-lg md:rounded-none md:rounded-l-lg" src="${
             post.image_url
           }" alt="" />

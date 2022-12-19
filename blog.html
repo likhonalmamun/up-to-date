@@ -1,26 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
 
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Stay Up To Date</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Stay Up To Date</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
-    <script src="https://cdn.tailwindcss.com"></script>
-  </head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/index.min.css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
 <!-- blog page starting  -->
 
-<body style="font-family: 'Playfair Display', serif;"> 
+<body style="font-family: 'Playfair Display', serif;">
   <!-- header section starts here  -->
   <header>
     <nav
-      class="relative w-full flex  flex-wrap items-center justify-between py-4 bg-gray-100 text-gray-500 hover:text-gray-700 focus:text-gray-700 shadow-lg navbar navbar-expand-lg navbar-light">
+      class="relative w-full flex  flex-wrap items-center justify-between py-4 bg-gray-900 text-gray-500 hover:text-gray-700 focus:text-gray-700 shadow-lg navbar navbar-expand-lg ">
       <div class="container-fluid w-full flex flex-wrap items-center justify-between px-6">
         <button
           class="navbar-toggler text-gray-500 border-0 hover:shadow-none hover:no-underline py-2 px-2.5 bg-transparent focus:outline-none focus:ring-0 focus:shadow-none focus:no-underline"
@@ -34,14 +34,14 @@
           </svg>
         </button>
         <div class="collapse navbar-collapse flex-grow items-center text-2xl font-bold" id="navbarSupportedContent">
-          <span class="text-red-400">UP</span><span class="text-lime-400">TO</span><span
-            class="text-red-400">DATE</span>
+          <span class="text-teal-500">UP</span><span class="text-rose-500">TO</span><span
+            class="text-teal-500">DATE</span>
 
         </div>
-        <div class="flex items-center relative text-lg text-red-400 hover:text-red-600 font-bold p-2 ">
+        <div class="flex items-center relative text-lg text-rose-500 duration-300 hover:text-white font-bold p-2 ">
           <a href="index.html">Updates</a>
         </div>
-        <div class="dropdown relative text-lg font-bold text-lime-400 hover:text-lime-600 p-2 mr-5">
+        <div class="dropdown relative text-lg font-bold text-teal-400 duration-300 hover:text-white p-2 mr-5">
           <a href="blog.html">Blogs</a>
         </div>
       </div>
@@ -55,19 +55,21 @@
 
   <!-- main content starts here  -->
   <main class="mt-7">
-    <h1 class="text-3xl text-red-400 font-bold text-center"> Today's Top 5 Selected QNA </h1>
+    <h1 class="sm:text-3xl text-2xl text-teal-700 font-bold text-center"> Today's Top 5 Selected QNA </h1>
     <div class="grid  xl:grid-cols-3 md:grid-cols-2 grid-cols-1 m-3 gap-6 p-0">
-      <div class="w-full bg-red-100 rounded-lg p-3 md:p-4 flex items-center">
-        <!-- question box-1 starts here -->
+      <!-- question box-1 starts here -->
+      <div class="w-full bg-teal-100 rounded-lg p-3 md:p-4 flex items-center">
         <div>
-          <h1 class="text-2xl font-bold text-center">Question 1. </h1>
-          <h1 class="text-xl md:text-2xl font-bold text-lime-600 mb-4">What are the differences between var , let and
+          <h1 class="text-2xl font-bold text-center text-teal-800">Question 1. </h1>
+          <h1 class="text-xl md:text-2xl font-bold text-rose-600 mb-4">What are the differences between var , let and
             const in JS ?!</h1>
-          <p class="text-sm md:text-md lg:text-lg font-medium"> Var is a variable of functional scope But let and const
-            are block scoped . </p>
-          <p class="text-sm md:text-md lg:text-lg font-medium">Var can be updated or redeclared , let can be updated but
-            cannot be redeclared and const cannot be updated or redecleared .</p>
-          <p class="text-sm md:text-md lg:text-lg font-medium">Var has a default value 'undefined'. So it can be accesed
+          <p class="text-sm md:text-md lg:text-lg font-semibold"> Var is a variable of functional scope But let and
+            const
+            are block scoped . <br> Var can be updated or redeclared , let can be updated
+            but
+            cannot be redeclared and const cannot be updated or redecleared . <br> Var has a default value 'undefined'.
+            So it can be
+            accesed
             without initialization but let or const will give refference error .</p>
         </div>
       </div>
@@ -78,16 +80,15 @@
 
 
       <!-- question box-2 starts here -->
-      <div class="w-full bg-red-100 rounded-lg p-4 flex items-center">
+      <div class="w-full bg-rose-100 rounded-lg p-4 flex items-center">
         <div>
-          <h1 class="text-2xl font-bold text-center">Question 2. </h1>
-          <h1 class="text-xl md:text-2xl font-bold text-lime-600 mb-4">What are the differences between arrow function
+          <h1 class="text-2xl font-bold text-center text-rose-800">Question 2. </h1>
+          <h1 class="text-xl md:text-2xl font-bold text-teal-700 mb-4">What are the differences between arrow function
             and regular function in JS ?!</h1>
-          <p class="text-sm md:text-md lg:text-lg font-medium">Arrow function is declared like a variable and regular
-            function is declared with the function keyword .</p>
-          <p class="text-sm md:text-md lg:text-lg font-medium">Generally regular function can have duplicate parameters
-            but arrow function can not .</p>
-          <p class="text-sm md:text-md lg:text-lg font-medium">In arrow function , value of this keyword is relative to
+          <p class="text-sm md:text-md lg:text-lg font-semibold">Arrow function is declared like a variable and regular
+            function is declared with the function keyword . <br> Generally regular function can have duplicate
+            parameters
+            but arrow function can not . <br> In arrow function , value of this keyword is relative to
             outer function but in regular function , the value is dynamic .</p>
         </div>
       </div>
@@ -98,18 +99,17 @@
 
 
       <!-- question box-3 starts here -->
-      <div class="w-full bg-red-100 rounded-lg p-4 flex items-center">
+      <div class="w-full bg-teal-100 rounded-lg p-4 flex items-center">
         <div>
-          <h1 class="text-2xl font-bold text-center">Question 3. </h1>
-          <h1 class="text-xl md:text-2xl font-bold text-lime-600 mb-4">What are the differences among map
+          <h1 class="text-2xl font-bold text-center text-teal-800">Question 3. </h1>
+          <h1 class="text-xl md:text-2xl font-bold text-rose-600 mb-4">What are the differences among map
             ,forEach,filter and find methods ?!</h1>
-          <p class="text-sm md:text-md lg:text-lg font-medium">Map : It runs a function on each element of an array and
-            returns the results in a new array .</p>
-          <p class="text-sm md:text-md lg:text-lg font-medium">forEach : It runs a function on each element of an array
-            but it returns nothing.</p>
-          <p class="text-sm md:text-md lg:text-lg font-medium">Filter : It checks the given condition on each element of
-            an array and returns the mathing results in a new array .</p>
-          <p class="text-sm md:text-md lg:text-lg font-medium">Find : It checks the given condition on each element of
+          <p class="text-sm md:text-md lg:text-lg font-semibold">Map : It runs a function on each element of an array
+            and
+            returns the results in a new array . <br> forEach : It runs a function on each element of an array
+            but it returns nothing. <br> Filter : It checks the given condition on each element of
+            an array and returns the mathing results in a new array . <br> Find : It checks the given condition on each
+            element of
             an array and returns the first mathing result .</p>
         </div>
       </div>
@@ -119,12 +119,12 @@
 
 
       <!-- question box-4 starts here -->
-      <div class="w-full bg-red-100 rounded-lg p-4 flex items-center">
+      <div class="w-full bg-rose-100 rounded-lg p-4 flex items-center">
         <div>
-          <h1 class="text-2xl font-bold text-center">Question 4.</h1>
-          <h1 class="text-xl md:text-2xl font-bold text-lime-600 mb-4">Why should you use template string ?!</h1>
+          <h1 class="text-2xl font-bold text-center text-rose-800">Question 4.</h1>
+          <h1 class="text-xl md:text-2xl font-bold text-teal-700 mb-4">Why should you use template string ?!</h1>
 
-          <p class="text-sm md:text-md lg:text-lg font-medium">Template strings are a powerful feature of ES6
+          <p class="text-sm md:text-md lg:text-lg font-semibold">Template strings are a powerful feature of ES6
             . It lets us insert/interpolate variables and expressions into
             strings without concatenating like in older versions of JavaScript.
             It allows us to create strings that can contain dynamic elements.

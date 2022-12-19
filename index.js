@@ -1,4 +1,3 @@
-
 //  catagorie data loading starts here
 fetch("https://openapi.programming-hero.com/api/news/categories")
   .then((res) => res.json())
@@ -6,27 +5,22 @@ fetch("https://openapi.programming-hero.com/api/news/categories")
   .catch((err) => console.log(err));
 //  catagorie data loading ends here
 
-
-
-
-// catagory listing starts here 
+// catagory listing starts here
 const addToList = (catagories) => {
   catagories.forEach((catagory) => {
     let li = document.createElement("li");
     li.classList.add("md:m-5");
     li.innerHTML = `
-     <span onclick='loadPosts("${catagory.category_id}")' class='text-lime-700 hover:text-red-400'>${catagory.category_name}</span>
+     <span onclick='loadPosts("${catagory.category_id}")' class='text-teal-600 duration-300 hover:text-rose-500'>${catagory.category_name}</span>
     `;
     document.getElementById("list").appendChild(li);
   });
 };
 //catagory listing ends here
 
-
-
-// post data loading starts here 
+// post data loading starts here
 const loadPosts = (id) => {
-  // spinner getting visible here 
+  // spinner getting visible here
   document.getElementById("spinner").classList.remove("hidden");
   document.getElementById("post-container").classList.add("hidden");
   fetch(`https://openapi.programming-hero.com/api/news/category/${id}`)
@@ -34,12 +28,9 @@ const loadPosts = (id) => {
     .then((data) => showPosts(data.data))
     .catch((err) => console.log(err));
 };
-// post data loading ends here 
+// post data loading ends here
 
-
-
-
-// adding post to page starts here 
+// adding post to page starts here
 const showPosts = (posts) => {
   posts.sort((a, b) => {
     if (a.total_view == null) {
@@ -72,10 +63,10 @@ const showPosts = (posts) => {
             post.image_url
           }" alt="" />
           <div class=" p-2 sm:p-4 md:p-6 flex text-wrap md:w-full flex-col justify-start">
-            <h5 class="text-lime-700 text-lg md:text-2xl font-bold mb-2">${
+            <h5 class="text-teal-700 text-lg md:text-2xl font-bold mb-2">${
               post.title
             }</h5>
-            <p class="text-gray-700 text-[10px] md:text-base mb-4">
+            <p class="text-gray-800 font-semibold text-[10px] md:text-base mb-4">
             ${detail}
             </p>
             <p class="text-gray-600 md:text-xs text-[11px] font-bold">${
@@ -87,22 +78,22 @@ const showPosts = (posts) => {
             <div class="flex mt-3 items-center">
             <img  src='${
               post.author.img
-            }' class='w-[30px] md:w-[40px] xl:w-[50px] rounded-[100px]' />
-            <p class='text-lime-700 ml-2 font-bold uppercase mx-3 my-2 text-sm md:text-xl'>${
+            }' class='w-[30px] md:w-[50px] xl:w-[50px] p-[2px] border border-rose-600 rounded-[100px]' />
+            <p class='text-teal-700 ml-2 font-bold uppercase mx-3 my-2 text-sm md:text-xl'>${
               post.author.name ? post.author.name : "unknown user"
             }</p>
         </div>
-        <div class="flex items-center font-bold text-sm lg:text-xl mx-3 my-2 sm:text:xl text-red-500">Views : ${
+        <div class="flex items-center font-bold text-sm lg:text-xl mx-3 my-2 sm:text:xl text-rose-500">Views : ${
           post.total_view ? post.total_view : "Calculating views"
         }</div>
-        <div class="flex items-center font-bold text-sm lg:text-xl mx-3 my-2 sm:text:xl text-red-500"><span class='text-lime-700'>Ratings : </span> ${
+        <div class="flex items-center font-bold text-sm lg:text-xl mx-3 my-2 sm:text:xl text-rose-500"><span class='text-teal-700'>Ratings : </span> ${
           post.rating.number
         }</div>
         <button onclick= 'postDetail("${
           post._id
         }")' data-bs-toggle="modal" data-bs-target="#exampleModalCenteredScrollable" class=" px-2 sm:px-4  md:px-6 
-          py-1 md:py-2 border-2 border-green-500
-         text-green-900 font-semibold text-xs sm:text-sm md:text-sm lg:text-sm mx-3 my-2 uppercase rounded hover:bg-black hover:bg-opacity-5">See Details</button>
+          py-1 md:py-2 border-2 bg-teal-600 border-teal-700
+         text-white hover:text-teal-700 duration-300 font-semibold text-xs sm:text-sm md:text-sm lg:text-sm mx-3 my-2 uppercase rounded hover:bg-black hover:bg-opacity-5">See Details</button>
         </div>
       </div>
         </div>
@@ -111,17 +102,13 @@ const showPosts = (posts) => {
     document.getElementById("post-container").appendChild(postBox);
   });
 
-  // spinner getting invisible here 
+  // spinner getting invisible here
   document.getElementById("spinner").classList.add("hidden");
   document.getElementById("post-container").classList.remove("hidden");
 };
-// adding post to page ends here 
+// adding post to page ends here
 
-
-
-
-
-// post detail  loading starts here 
+// post detail  loading starts here
 const postDetail = async (id) => {
   try {
     let res = await fetch(
@@ -133,26 +120,25 @@ const postDetail = async (id) => {
     console.log(err);
   }
 };
-// post detail loading ends here 
+// post detail loading ends here
 
-
-
-
-// showing details in modal starts here 
+// showing details in modal starts here
 const modal = (post) => {
   document.getElementById(
     "exampleModalCenteredScrollableLabel"
   ).innerText = `${post.title}`;
   document.getElementById("modal-body").innerHTML = `
     <div class="p-1 md:p-3">
-       <img class='w-full m-auto block mb-5 ' src="${post.image_url}" alt="">
-       <p class="mb-4 text-[12px] md:text-base">${post.details}</p>
+       <img class='w-full  m-auto block mb-5 ' src="${post.image_url}" alt="">
+       <p class="mb-4 text-[12px] font-semibold md:text-base">${
+         post.details
+       }</p>
        <div class='border p-5'> <p class='text-center font-bold text-xl'>Post Author</p>
        <div class="flex justify-center mt-3 items-center">
       <img  src='${
         post.author.img
-      }' class='w-[30px] md:w-[40px] xl:w-[50px] rounded-[100px]' />
-      <p class='text-lime-700 ml-2 font-bold uppercase text-xl'>${
+      }' class='w-[40px] md:w-[40px] xl:w-[50px] p-[2px] border border-rose-500 rounded-[100px]' />
+      <p class='text-teal-700 ml-2 font-bold uppercase text-xl'>${
         post.author.name ? post.author.name : "unknown"
       }</p>
       </div>
@@ -161,4 +147,4 @@ const modal = (post) => {
     </div>
     `;
 };
-// showing details to modal ends here 
+// showing details to modal ends here
